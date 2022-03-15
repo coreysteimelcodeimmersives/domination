@@ -23,23 +23,34 @@ function setImage(domId, url){
 }
 
 function removeListItem(){
-    for (let i = 0; i < argumentsList.childElementCount; i++){
-        if (argumentsList.children[i] !== null){
-            argumentsList.children[i].remove();
-            break;
-        }
-    }
+    // this is really all i need
+    argumentsList.children[0].remove();
+
+    // old code ...
+    // if (argumentsList.children[0] !== null){
+        // argumentsList.children[0].remove();
+    // }
+    // for (let i = 0; i < argumentsList.childElementCount; i++){
+        // if (argumentsList.children[i] !== null){
+        //     argumentsList.children[i].remove();
+            // break;
+        // }
+    // }
 }
 
-function changeFontSizeById(str1, str2){
-    let element = document.querySelector(str2);
-    element.style.fontSize = str1;
+function changeFontSizeById(id, size){
+    let element = document.querySelector(id);
+    element.style.fontSize = size;
 }
 
 function appendToArguments(domEl){
-    let newItem = document.createElement('li');
-    newItem = domEl;
-    argumentsList.appendChild(newItem);
+    // I don't need this code
+    // let newItem = document.createElement('li');
+    // newItem = domEl;
+    // argumentsList.appendChild(newItem);
+
+    // this will work
+    argumentsList.appendChild(domEl);
 }
 
 function modImageTo30(element){
@@ -52,7 +63,7 @@ function makeClassInvisible(element){
 
 function newListItem(str){
     let newListItem = document.createElement('li');
-    newListItem.innerText = `${str}`;
+    newListItem.innerText = str;
     return newListItem;
     
 }
@@ -75,7 +86,7 @@ setImage('#image-3', 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%
 removeListItem();
 removeListItem();
 
-changeFontSizeById('85px', '#heading');
+changeFontSizeById('#heading', '85px');
 
 appendToArguments(newImage);
 
